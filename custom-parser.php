@@ -14,7 +14,7 @@ class custom_parser extends wp_noexternallinks_parser
     {
         register_activation_hook(__FILE__, array($this, 'activate'));
       ############# ADDED HERE A CHECK FOR BOTS
-      if(stripos($_SERVER['HTTP_USER_AGENT'],'AhrefsBot'))
+      if(stripos($_SERVER['HTTP_USER_AGENT'],'AhrefsBot')!==FALSE)
       {
         $this->debug_info("Masking is disabled for bots with this useragent");
         return;
